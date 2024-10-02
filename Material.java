@@ -84,10 +84,15 @@ public class Material {
                 setId(scanner.nextLine());
             }
 
+            while (!validateIdMaterial(getId())) {
+                System.out.println("El id ingresado no cumple con el formato, el formato debe de ser dos letras y 5 números. Por favor ingrese otro: ");
+                setId(scanner.nextLine());
+            }
+
             System.out.println("Ingrese el título del material: ");
             setTitle(scanner.nextLine());
 
-            System.out.println("Ingrese la fecha de registro: ");
+            System.out.println("Ingrese la fecha de registro (dd/MM/aaaa): ");
             setRegistrationDate(scanner.nextLine());
 
             System.out.println("Ingrese la cantidad de material: ");
@@ -128,6 +133,15 @@ public class Material {
             if (materialList[i].getId().equals(id)) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    public boolean validateIdMaterial(String id) {
+        String validate = "^[A-Za-z]{2}\\d{5}$";
+
+        if (id.matches(validate)) {
+            return true;
         }
         return false;
     }

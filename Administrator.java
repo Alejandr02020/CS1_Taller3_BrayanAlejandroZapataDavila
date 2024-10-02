@@ -84,11 +84,16 @@ public class Administrator extends Person{
             String id = scanner.nextLine();
     
             for (int i = 0; i < count; i++) {
-                if (personList[i].getId().equals(id)) {
+                if (personList[i].getId().equals(id) && personList[i].getRol().equals("ESTUDIANTE") && personList[i].getNumberLoans() == 5) {
                     personList[i] = null;
                     count--;
+                    System.out.println("Persona eliminada");
+                } else if (personList[i].getId().equals(id) && personList[i].getRol().equals("PROFESOR") && personList[i].getNumberLoans() == 3) {
+                    personList[i] = null;
+                    count--;
+                    System.out.println("Persona eliminada");
                 } else {
-                    System.out.println("No se encontró la persona con la cédula ingresada");
+                    System.out.println("No se encontró la persona con la cédula ingresada o la persona tiene préstamos pendientes");
                 }
             }
         }
@@ -109,17 +114,4 @@ public class Administrator extends Person{
             }
         }
     }
-
-    public boolean userExist(String id)
-    {
-        for (int i = 0; i < count; i++) {
-            System.out.print(materialList[i].getId());
-            if (personList[i].getId().equals(id)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-    
 }

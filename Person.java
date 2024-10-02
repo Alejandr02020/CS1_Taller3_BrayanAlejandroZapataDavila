@@ -99,7 +99,9 @@ public class Person extends Material {
             if (materialList[i].getId().equals(id) && personList[i].getNumberLoans() > 0) {
                 if (materialList[i].getCurrentQuantity() > 0) {
                     materialList[i].setCurrentQuantity(materialList[i].getCurrentQuantity() - 1);
+                    personList[i].setNumberLoans(personList[i].getNumberLoans() - 1);
                     System.out.println("Material reservado");
+                    System.out.println("Cantidad de préstamos restantes: " + personList[i].getNumberLoans());
                 } else {
                     System.out.println("No hay material disponible o pasaste el límite de reservas");
                 }
@@ -129,7 +131,7 @@ public class Person extends Material {
                 if (materialList[i].getCurrentQuantity() > 0 && personList[i].getNumberRenewals() > 0) {
                     personList[i].setNumberRenewals(personList[i].getNumberRenewals() - 1);
                     System.out.println("Material renovado");
-                    System.out.println("Cantidad de renovaciones restantes: " + personList[i].getNumberLoans());
+                    System.out.println("Cantidad de renovaciones restantes: " + personList[i].getNumberRenewals());
                 } else {
                     System.out.println("No hay material disponible o pasaste el límite de renovaciones");
 
@@ -158,6 +160,7 @@ public class Person extends Material {
         for (int i = 0; i < count; i++) {
             if (materialList[i].getId().equals(id)) {
                 materialList[i].setCurrentQuantity(materialList[i].getCurrentQuantity() + 1);
+                personList[i].setNumberLoans(personList[i].getNumberLoans() + 1);
                 System.out.println("Material devuelto");
             } else {
                 System.out.println("No se encontró el material con el id ingresado");

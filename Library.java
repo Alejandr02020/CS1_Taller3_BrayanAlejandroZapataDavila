@@ -8,6 +8,7 @@ public class Library {
         Administrator administrator = new Administrator(null, null, null, null, 0, 0, null, null, null, 0, 0);
         Student student = new Student(null, null, null, null, 0, 0, null, null, null, 0, 0);
         Teacher teacher = new Teacher(null, null, null, null, 0, 0,  null, null, null, 0, 0);
+        
         while (option != 4) {
             if (option == 1) {
                 menu.showStudentMenu();
