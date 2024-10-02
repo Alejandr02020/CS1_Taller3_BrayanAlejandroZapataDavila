@@ -128,7 +128,7 @@ public class Person extends Material {
 
         for (int i = 0; i < count; i++) {
             if (materialList[i].getId().equals(id)) {
-                if (materialList[i].getCurrentQuantity() > 0 && personList[i].getNumberRenewals() > 0) {
+                if (personList[i].getNumberRenewals() > 0) {
                     personList[i].setNumberRenewals(personList[i].getNumberRenewals() - 1);
                     System.out.println("Material renovado");
                     System.out.println("Cantidad de renovaciones restantes: " + personList[i].getNumberRenewals());
